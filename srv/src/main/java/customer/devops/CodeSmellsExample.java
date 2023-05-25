@@ -45,7 +45,6 @@ public class CodeSmellsExample {
         logger.info("X: {}", example.getX());
         logger.info("Y: {}", example.getY());
         logger.info("Sum: {}", example.calculateSum());
-        example.doSomething();
         example.printMessage("Hello, World!");
         example.printMessage("Goodbye!", 3);
     }
