@@ -27,6 +27,7 @@ public class CodeSmellsExample {
     public void doSomething() {
         try {
             // Perform some risky operation
+            int result = x / y; // Divide by zero bug
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
@@ -37,7 +38,7 @@ public class CodeSmellsExample {
     }
 
     public void printMessage(String message, int count) {
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i <= count; i++) { // Loop condition bug
             System.out.println("Message: " + message);
         }
     }
