@@ -1,7 +1,7 @@
 public class CodeSmellsExample {
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public CodeSmellsExample(int x, int y) {
         this.x = x;
@@ -27,8 +27,8 @@ public class CodeSmellsExample {
     public void doSomething() {
         try {
             // Perform some risky operation
-            int result = x / y; // Divide by zero bug
-        } catch (Exception e) {
+            int result = x / y;
+        } catch (ArithmeticException e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
     }
@@ -38,7 +38,7 @@ public class CodeSmellsExample {
     }
 
     public void printMessage(String message, int count) {
-        for (int i = 0; i <= count; i++) { // Loop condition bug
+        for (int i = 0; i < count; i++) {
             System.out.println("Message: " + message);
         }
     }
