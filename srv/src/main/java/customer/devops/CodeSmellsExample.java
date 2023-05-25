@@ -1,3 +1,5 @@
+package com.example;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,15 +28,6 @@ public class CodeSmellsExample {
             sum += i;
         }
         return sum;
-    }
-
-    public void doSomething() {
-        try {
-            // Perform some risky operation
-            int result = x / y;
-        } catch (ArithmeticException e) {
-            logger.error("An error occurred: {}", e.getMessage());
-        }
     }
 
     public void printMessage(String message) {
