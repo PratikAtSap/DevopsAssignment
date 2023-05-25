@@ -1,7 +1,11 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CodeSmellsExample {
 
     private final int x;
     private final int y;
+    private static final Logger logger = LoggerFactory.getLogger(CodeSmellsExample.class);
 
     public CodeSmellsExample(int x, int y) {
         this.x = x;
@@ -29,25 +33,25 @@ public class CodeSmellsExample {
             // Perform some risky operation
             int result = x / y;
         } catch (ArithmeticException e) {
-            System.out.println("An error occurred: " + e.getMessage());
+            logger.error("An error occurred: {}", e.getMessage());
         }
     }
 
     public void printMessage(String message) {
-        System.out.println("Message: " + message);
+        logger.info("Message: {}", message);
     }
 
     public void printMessage(String message, int count) {
         for (int i = 0; i < count; i++) {
-            System.out.println("Message: " + message);
+            logger.info("Message: {}", message);
         }
     }
 
     public static void main(String[] args) {
         CodeSmellsExample example = new CodeSmellsExample(5, 10);
-        System.out.println("X: " + example.getX());
-        System.out.println("Y: " + example.getY());
-        System.out.println("Sum: " + example.calculateSum());
+        logger.info("X: {}", example.getX());
+        logger.info("Y: {}", example.getY());
+        logger.info("Sum: {}", example.calculateSum());
         example.doSomething();
         example.printMessage("Hello, World!");
         example.printMessage("Goodbye!", 3);
